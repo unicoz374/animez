@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Oswald", sans-serif;
+  --font-body: "Space Grotesk", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0B0E1A;
+  color: #F2F1F8;
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: #FF3D68;
+  color: #0B0E1A;
+}
+
+/* Focus ring yang tetap terlihat jelas untuk aksesibilitas keyboard */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #35E7C7;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Sobekan tiket ala bioskop, dipakai di kartu voucher / hero */
+.ticket-edge {
+  position: relative;
+}
+.ticket-edge::before,
+.ticket-edge::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: #0B0E1A;
+  border-radius: 999px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.ticket-edge::before {
+  left: -9px;
+}
+.ticket-edge::after {
+  right: -9px;
+}
+
+.film-grain {
+  background-image: var(--tw-gradient-stops);
+}
+
+.marquee-text {
+  letter-spacing: 0.01em;
+  line-height: 1.05;
+}
